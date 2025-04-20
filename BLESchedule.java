@@ -101,42 +101,7 @@ public abstract class BLESchedule implements Serializable {
 		return (numerator / (double) (simulationTime));
 	}
 
-	// public double getConsumptionWithIdleCost(double idleCost){
-	// 	double numerator = 0;
-	// 	double TXcost = options.getTXCost();
-	// 	double RXcost = options.getRXCost();
-	// 	double radioOnTime = 0;
-	// 	double WPScanCost = options.getWpScanCost();
-	// 	double WPAdvCost = options.getWpAdvCost();
-	// 	Iterator<BLEScheduleEvent> it = schedule.iterator();
-	// 	while(it.hasNext()){
-	// 		BLEScheduleEvent startEvent = it.next();
-	// 		BLEScheduleEvent endEvent = it.next();
-	// 		double startTime = startEvent.getTime();
-	// 		double endTime = endEvent.getTime();
-	// 		double elapsedTime = endTime - startTime;
-	// 		radioOnTime += radioOnTime;
-	// 		if(startEvent.isActivated()){
-	// 		if(startEvent.isInWPScan()){
-	// 			numerator += elapsedTime * WPScanCost;
-	// 		}
-	// 		else if(startEvent.isInWPAdv()){
-	// 			numerator += elapsedTime * WPAdvCost;
-	// 		}
-	// 		else if(startEvent.isBeacon()){
-	// 			numerator += elapsedTime * TXcost * 3; // TODO: the *3 should really be dependent on how we're modeling the beacons
-	// 		}
-	// 		else{
-	// 			numerator += elapsedTime * RXcost; // we consider that the secondary channel also use the 1M phy so the power consumption is the same as primary channel.
-	// 		}
-	// 		}
-	// 	}
-	// 	double idleTime = simulationTime - radioOnTime;
-	// 	numerator += idleTime*idleCost;
-	// 	// numerator has the amount of energy consumed
-	// 	// so we're returning the instantaneous current (I in the optimizer)
-	// 	return (numerator / (double) (simulationTime));
-	// }
+
 	public double getConsumptionWithIdleCost(double idleCost) {
 		double numerator = 0;
 		double TXcost = options.getTXCost();

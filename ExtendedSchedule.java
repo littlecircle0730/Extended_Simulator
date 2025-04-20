@@ -90,20 +90,6 @@ public class ExtendedSchedule extends BLESchedule{
 			BLEExtendedAdvertiseEndEvent endAdvertising = new BLEExtendedAdvertiseEndEvent(nodeID, time+totalBeaconTime, secondChannel);
 			schedule.add(endAdvertising);
 
-			// //////////////////////////////////////////////////
-			// // primary beacon
-			// BLEExtendedAdvertiseStartEvent startAdvertising = new BLEExtendedAdvertiseStartEvent(nodeID, time, secondChannel);
-			// if(isMissing){
-			// 	startAdvertising.setIsPkLoss(true);
-			// }
-			// schedule.add(startAdvertising);
-			// BLEExtendedAdvertiseEndEvent endAdvertising = new BLEExtendedAdvertiseEndEvent(nodeID, time + beaconLength, secondChannel);
-			// if(isMissing){
-			// 	endAdvertising.setIsPkLoss(true);
-			// }
-			// schedule.add(endAdvertising);
-			// // secondary beacon
-
 			lastBeaconTime = time+totalBeaconTime;
 			// right? the time between two start beacons should be the same as a listen (which is the advertising interval + beacon length)
 			// the start time for the NEXT beacon should be time + advertisingInterval + the BLE random delay
